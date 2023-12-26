@@ -3,24 +3,21 @@
  */
 package project.hierarchy;
 
-import project.hierarchy.structure.Directory;
-import project.hierarchy.structure.File;
-import project.hierarchy.structure.ProjectComponent;
+import java.util.Scanner;
+
+import project.hierarchy.files_nagivation.FileNavigator;
 
 public class App {
 
     public static void main(String[] args) {
         
-        Directory component1 = new Directory("Dir 1");
-        Directory component2 = new Directory("Dir 2");
-        File component3 = new File("File 1");
-        File component4 = new File("File 2");
-        
-        component1.addChild(component3);
-        component2.addChild(component4);
-        component1.addChild(component2);
+        Scanner scanner = new Scanner(System.in);
+        String path = scanner.nextLine();
+        scanner.close();
 
-        component1.display("-");
+        FileNavigator fn = new FileNavigator();
+        fn.navigate(path);
+        fn.print();
 
     }
 
